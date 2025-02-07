@@ -2,13 +2,13 @@ const cfpData = [];
 
 function determineHouseSizePts(size) {
     let houseSizePoints = 0;
-    if(size === "large"){
+    if (size === "large") {
         houseSizePoints = 10;
-    } else if(size === "medium") {
+    } else if (size === "medium") {
         houseSizePoints = 7;
-    } else if(size === "small") {
+    } else if (size === "small") {
         houseSizePoints = 4;
-    } else if(size === "apt") {
+    } else if (size === "apt") {
         houseSizePoints = 2;
     }
     return houseSizePoints
@@ -43,7 +43,17 @@ function start(houseHoldMember, houseSize) {
 }
 
 function displayOutPut() {
+    for (arr of cfpData) {
+      console.log(arr)
+      const output = document.getElementById("output");
+      const newP = document.createElement("p");
+      newP.textContent = `Accodring to your files, you have ${arr[0]} house memebr(s) and live in a ${arr[1]} compound.`;
+      output.appendChild(newP)
+      const par2 = document.createElement("p")
+      par2. textContent = `${arr[2]} points for household and ${arr[3]} points for your home size. Your total Carbon Footprint is ${arr[4]}!`
+      output.appendChild(par2)
 
+    }
 }
 
 start(1, "apt");
