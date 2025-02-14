@@ -66,16 +66,16 @@ function determineHouseSizePts(size) {
       for(obj of cfpData) {
         console.log(obj)
           const output = document.getElementById("output");
-        //   const newP = document.createElement("p");
           const newH2 = document.createElement("h2");
-          newH2.textContent = `Carbon Footprint total is ${obj.tot}`;
-        //   const newH3 = document.createElement("h3")
-        //   newH3.textContent = `Based on Number in Household and Size of Home`
-        //   newP.textContent = `This number is based on the number of members of household of ${arr[0]} (score: ${arr[2]})`;
-        //   newP.textContent += ` and a ${arr[1]} size of home (score ${arr[3]})`
+          const newP = document.createElement("p");
+          const newH3 = document.createElement("h3")
+          newH2.textContent = `Your Carbon Footprint total score is ${obj.tot}!`;
           output.appendChild(newH2);
-        //   output.appendChild(newH3);
-        //   output.appendChild(newP);
+          newH3.textContent = `Based on the Number in your household and size of home.`
+          output.appendChild(newH3)
+          newP.textContent = `This score is based on your household member(s) of ${obj.yourMember} (score: ${obj.yourMemPts})`;
+          newP.textContent += ` and a ${obj.yourHouse} size home (score ${obj.yourSizePts}).`;
+          output.appendChild(newP);
       }
     }
   
