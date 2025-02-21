@@ -48,22 +48,26 @@ function displayOutObj(obj) {
   OUTPUT.appendChild(newP);
 }
 
-function start(houseHoldMembers, houseSize) {
+function start(houseHoldMembers, houseSize, firstName, lastName) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
   cfpData.push({
+    firstName: firstName,
+    lastName: lastName,
     yourMember: houseHoldMembers,
     yourHouse: houseSize,
     yourMemPts: houseHoldPTS,
     yourSizePts: houseSizePts,
     tot: total
   });
-
 }
 
 function displayOutput() {
   for (obj of cfpData) {
+    const newH1 = document.createElement("h1")
+    newH1.textContent = `Hello ${obj.firstName} ${obj.lastName}!`
+    OUTPUT.appendChild(newH1)
     const newH2 = document.createElement("h2");
     const newP = document.createElement("p");
     const newH3 = document.createElement("h3");
@@ -79,14 +83,13 @@ function displayOutput() {
 
 displayOutput()
 
-
 FORM.addEventListener(`submit`, function(e) {
   e.preventDefault();
-  const firstName = FORM.firstname.value;
-  const lastName = FORM.lastname.value;
+  const firstName = FORM.firstName.value;
+  const lastName = FORM.lastName.value;
   const houseHoldMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
-  start(houseHoldMembers, houseSize)
+  start(houseHoldMembers, houseSize, firstName, lastName);
   OUTPUT.innerHTML = "";
   displayOutput() 
   FORM.reset()
