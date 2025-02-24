@@ -110,37 +110,50 @@
 
 //Week 6: Array code challenge 
 
-const movies = [
-  { 
+const movieArr = [
+  {
     title: "Deadpool & Wolverine",
     year: "2024",
-    rating: "7.6/10",
+    rating: "7.6",
+    watched: "5",
+  },
+  {
+    title: "Spirited Away",
+    year: "2001",
+    rating: "8.6",
+    watched: "5",
   },
   {
     title: "Dear Evan Hansen",
     year: "2021",
-    rating: "6.1/10",
+    rating: "6.1",
+    watched: "1",
+    
   },
-  { 
-    title: "Spirited Away", 
-    year: "2001",
-    rating: "8.6/10"
+  {
+    title: "The Greatest Showman",
+    year: "2017",
+    rating: "7.5",
+    watched: "7",
   }
 ];
- 
 
-function displayMovies () {
-  const output = document.getElementById("output");
-  const newP = document.createElement("P");
-  newP.textContent = `Movies and Their Rating:`;
-  output.appendChild(newP);
-  for (obj of movies) {
-    console.log(obj);
-  const newH2 = document.createElement("h2");
-  newH2.textContent = `IMDb's rating of (${obj.rating}) was given to the movie "${obj.title}"`;
-  newH2.textContent += ` which was released in ${obj.year}.`;
-  output.appendChild(newH2);
+const output = document.getElementById("output");
+
+const newP = document.createElement("p");
+newP.textContent = `Movies and Their Ratings:`;
+output.appendChild(newP);
+
+movieArr.forEach((movie) => {
+  if (movie.rating >= 7 && movie.watched >= 5) {
+    const newH1 = document.createElement("h1");
+    newH1.textContent = `My Recommended Movie: ${movie.title} (${movie.year}), Rating: ${movie.rating}, Watched: ${movie.watched} times`;
+    output.appendChild(newH1);
   }
-}
-
-displayMovies();
+    else {
+    const newH2 = document.createElement("h2");
+    newH2.textContent = `My least recommended movie is ${movie.title} (${movie.year}), with a rating of ${movie.rating}.`;
+    newH2.textContent += ` This is why I only watched it ${movie.watched} time.`;
+    output.appendChild(newH2);
+  }
+});
