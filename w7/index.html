@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="main.js"></script>
-    <title>Week 6 - attendance</title>
-    <style>
-        html{
-            font-size: 22px;
-        }
-        body {
-            background-color: rgb(0, 0, 0);
-            color: whitesmoke;
-        }
-        input:in-range {
-            background-color: lightgreen;
-        }
-        input:out-of-range {
-            background-color: lightcoral;
-        }
-    </style>
+    <script type="module" src="main.js"></script>
+    <title>Week 7 - Code Along</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <form id="form">
         <fieldset>
             <legend>Calculating Your Carbon Footprint Points</legend>
             <div>
                 <label>First Name:</label>
-                <input type="text" name="firstName" maxlength="20" required placeholder="Maximum 20 Characters"/>
+                <input type="text" name="firstName" maxlength="20" required placeholder="Maximum 20 Characters" />
             </div>
             <div>
                 <label>Last Name:</label>
@@ -40,7 +28,6 @@
             </div>
             <div>
                 <label>Consider the size of your home</label>
-                <!-- <input type="text" name="houses" required /> -->
                 <select name="houses" required>
                     <option value="">---Please enter size of home---</option>
                     <option value="large">Large</option>
@@ -53,5 +40,35 @@
         </fieldset>
     </form>
     <div id="output"></div>
+    <div id="tab-data"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Footprint</th>
+            <!-- </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td> 
+                <td></td> 
+                <td></td> 
+                <td></td> 
+                <td></td>
+                </td>
+            </tr> -->
+            <!-- <tr>
+                <td></td> 
+                <td></td> 
+                <td></td>
+                <td></td> 
+                <td></td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>  -->
+        </tbody>
+    </table>
 </body>
+
 </html>
