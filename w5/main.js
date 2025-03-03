@@ -1,5 +1,4 @@
 // const cfpData = [];
-
 // function determineHouseSizePts(size) {
 //   let houseSizePoints = 0;
 //   if (size === "large") {
@@ -108,52 +107,65 @@
 
 // displayOutput()
 
-//Week 6: Array code challenge 
+//Week 8: Array code challenge 
 
 const movieArr = [
-  {
-    title: "Deadpool & Wolverine",
-    year: "2024",
-    rating: "7.6",
-    watched: "5",
-  },
-  {
-    title: "Spirited Away",
-    year: "2001",
-    rating: "8.6",
-    watched: "5",
-  },
-  {
-    title: "Dear Evan Hansen",
-    year: "2021",
-    rating: "6.1",
-    watched: "1",
-    
-  },
-  {
-    title: "The Greatest Showman",
-    year: "2017",
-    rating: "7.5",
-    watched: "7",
-  }
+  {title: "Deadpool & Wolverine", year: 2024, rating: 7.6, watched: 5 },
+  {title: "Spirited Away", year: 2001, rating: 8.6, watched: 5 },
+  {title: "Dear Evan Hansen", year: 2021, rating: 6.1, watched: 1 },
+  {title: "The Greatest Showman", year: 2017, rating: 7.5, watched: 7}
 ];
 
-const output = document.getElementById("output");
+function displayHeading() {
+  const output = document.getElementById("output");
+  const newH1 = document.createElement("h1");
+  newH1.textContent = "What should I watch tonight?";
+  output.appendChild(newH1);
+}
 
-const newP = document.createElement("p");
-newP.textContent = `Movies and Their Ratings:`;
-output.appendChild(newP);
+function arrTableHeading() {
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tr = document.createElement("tr");
+  const headingTextArr = ["Title", "Year", "Rating", "Watched"];
 
-movieArr.forEach((movie) => {
-  if (movie.rating >= 7 && movie.watched >= 5) {
-    const newH1 = document.createElement("h1");
-    newH1.textContent = `My Recommended Movie: ${movie.title} (${movie.year}), Rating: ${movie.rating}, Watched: ${movie.watched} times`;
-    output.appendChild(newH1);
-  }
-    else {
-    const newH2 = document.createElement("h2");
-    newH2.textContent = `My least recommended movie is ${movie.title} (${movie.year}), with a rating of ${movie.rating}.`;
-    newH2.textContent += ` This is why I only watched it ${movie.watched} time.`;
-    output.appendChild(newH2);
-  }
-});
+  headingTextArr.forEach(text => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    tr.appendChild(th);
+  });
+
+  thead.appendChild(tr);
+  table.appendChild(thead);
+  return table;
+}
+
+function displaymoviesTable() {
+  const moviesTable = document.getElementById("moviesData");
+  moviesTable.innerHTML = ""; 
+
+  const table = arrTableHeading();
+  const tbody = document.createElement("tbody");
+
+  movieArr.forEach((obj) => {
+    if (obj.rating > 7 && obj.watched > 2) {
+      const tr = document.createElement("tr");
+
+      ["title", "year", "rating", "watched"].forEach(key => { 
+        const td = document.createElement("td");
+        td.textContent = obj[key];
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    }
+  });
+
+  table.appendChild(tbody);
+  moviesTable.appendChild(table);
+}
+
+displayHeading ();
+displaymoviesTable();
+
+

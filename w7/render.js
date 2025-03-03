@@ -23,14 +23,14 @@ function renderTbl(data){
     const tbody = document.createElement("tbody");
     
 
-    data.forEach(function(data){ 
+    data.forEach(function(text){ 
         const tr = document.createElement("tr");
         const tdName = document.createElement("td");
-        tdName.textContent = data.firstName  //Would I have to import data? 
+        tdName.textContent = text.firstName  //Would I have to import data? 
         tr.appendChild(tdName);
 
         const tdTotal = document.createElement("td")
-        tdTotal.textContent = data.tot;
+        tdTotal.textContent = text.tot;
         tr.appendChild(tdTotal);
 
         tbody.appendChild(tr);
