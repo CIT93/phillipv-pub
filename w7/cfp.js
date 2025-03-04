@@ -34,4 +34,3 @@ function determineHouseSizePts(size) {
 
 export{determineHouseHoldPts, determineHouseSizePts}
 
-//Challenge 1 complete 
