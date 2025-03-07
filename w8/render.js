@@ -1,4 +1,5 @@
 const TBL = document.getElementById("tab-data")
+const FORM = document.getElementById("form")
 
 function renderTblHeading() {
     TBL.innerHTML = "";
@@ -21,31 +22,27 @@ function renderTblBtn(index, data) {
     const td = document.createElement("td");
     const btnEdit = document.createElement("button");
     const btnDel = document.createElement("button");
-    const btnSave = document.createElement("button") // my attempt 
     btnEdit.textContent = "Edit";
     btnDel.textContent = "Delete";
-    btnSave.textcontent = "Save"; // my attempt
     td.appendChild(btnEdit);
     td.appendChild(btnDel); 
-    td.appendChild(btnSave); //my attempt
+    
     
     btnDel.addEventListener (`click`, function (e){
         data.splice(index, 1);
         renderTbl(data);
-    });
-    btnEdit.addEventListener(`click`, function(e){
-        const obj = data[index] //my attempt
-
-        btnSave.addEventListener ("click", function (e) { //my attempt
-            obj.Name; //my attempt
-            obj.household; //my attempt
-            obj.houseSize; //my attempt
-            obj.footprint; //my attempt
-            
-            renderTbl(data); //my attempt
-        }); 
 
     });
+
+    btnEdit.addEventListener (`click`, function (e){
+        const dataRow = data[index]
+        FORM.firstName.value = dataRow.firstName
+        FORM.lastName.value = dataRow.lastName
+        FORM.houseM.value = dataRow.yourMember
+        FORM.houseS.value = dataRow.yourHouse
+        data.splice(index, 1);
+        renderTbl(data);
+    })
 
     return td;
 }
@@ -73,10 +70,12 @@ function renderBody(data) {
 
 function renderTbl(data) {
     TBL.innerHTML = "";
-    const table = renderTblHeading();
-    const tbody = renderBody(data);
-    table.appendChild(tbody);
-    TBL.appendChild(table);
+    if (data.length !== 0) {
+        const table = renderTblHeading();
+        const tbody = renderBody(data);
+        table.appendChild(tbody);
+        TBL.appendChild(table);
+    }
 }
 
 export { renderTbl };
