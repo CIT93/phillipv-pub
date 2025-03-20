@@ -1,0 +1,32 @@
+html{
+    font-size: 22px;
+}
+body {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+}
+input:in-range {
+    background-color: lightgreen;
+}
+input:out-of-range {
+    background-color: lightcoral;
+}
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+tbody tr:nth-child(odd) {
+    background-color: rgb(87, 168, 66);
+}
+#error {
+    color: red;
+    text-transform: uppercase;
+}
+.invalid {
+    border: 1px solid red;
+}
+.error {
+    color: red;
+}
+
+    
