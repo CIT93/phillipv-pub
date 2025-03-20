@@ -1,24 +1,42 @@
 import { renderTbl } from "./render.js";
 import { determineHouseHoldPts, determineHouseSizePts } from "./cfp.js";
-import { FORM, FNAME, LNAME, SUBMIT} from "./global.js";
+import { FORM, FNAME, LNAME, SUBMIT, TBL} from "./global.js";
 import { saveLS, cfpData } from "./storage.js"
 
-const start = (firstName, lastName, houseHoldMembers, houseSize) => {
-  const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
-  const houseSizePts = determineHouseSizePts(houseSize);
-  const total = houseHoldPTS + houseSizePts;
-  cfpData.push({
-    firstName: firstName,
-    lastName: lastName,
-    yourMember: houseHoldMembers,
-    yourHouse: houseSize,
-    yourMemPts: houseHoldPTS,
-    yourSizePts: houseSizePts,
-    tot: total,
-  });
+// const start = (firstName, lastName, houseHoldMembers, houseSize) => {
+//   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+//   const houseSizePts = determineHouseSizePts(houseSize);
+//   const total = houseHoldPTS + houseSizePts;
+//   cfpData.push({
+//     firstName: firstName,
+//     lastName: lastName,
+//     yourMember: houseHoldMembers,
+//     yourHouse: houseSize,
+//     yourMemPts: houseHoldPTS,
+//     yourSizePts: houseSizePts,
+//     tot: total,
+//   });
 
+// }
+// renderTbl(cfpData);
+
+const start = (...x) => {
+  const houseHoldPTS = determineHouseHoldPts(x[2]);
+  const houseSizePts = determineHouseSizePts(x[3]);
+  const total = houseHoldPTS + houseSizePts;
+
+  cfpData.push({
+    firstName: x[0],
+    lastName: x[1],
+    houseM: x[2],
+    houseS: x[3],
+    houseMPTS: houseHoldPTS,
+    houseSPTS: houseSizePts,
+    cfpTotal: total,
+  });
 }
-renderTbl(cfpData);
+renderTbl(cfpData); 
+console.log(TBL)
 
 const validateField = event => {
   const field = event.target.value;

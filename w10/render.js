@@ -40,8 +40,8 @@ const renderTblBtn = (obj, index, data) => {
     btnEdit.addEventListener (`click`, e => {
         FORM[1].value = obj.firstName;
         FORM[2].value = obj.lastName;
-        FORM[3].value = obj.yourMember;
-        FORM[4].value = obj.yourHouse;
+        FORM[3].value = obj.houseM;
+        FORM[4].value = obj.houseS;
         onUpdate(index, data);
     })
 
@@ -54,7 +54,7 @@ const renderBody = data => {
     data.forEach((obj, index) => {
         const tr = document.createElement("tr");
         for (const [key, value] of Object.entries(obj)) {
-            if (key !== "lastName" && key !== "yourMemPts" && key !== "yourSizePts") {
+            if (key !== "lastName" && key !== "houseMPTS" && key !== "houseSPTS") {
                 const td = document.createElement("td");
                 td.textContent = value;
                 tr.appendChild(td);
