@@ -3,7 +3,7 @@ import { determineHouseHoldPts, determineHouseSizePts } from "./cfp.js";
 import { FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import { saveLS, cfpData } from "./storage.js"
 
-const start = function (firstName, lastName, houseHoldMembers, houseSize) {
+const start = (firstName, lastName, houseHoldMembers, houseSize) => {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
@@ -20,7 +20,7 @@ const start = function (firstName, lastName, houseHoldMembers, houseSize) {
 }
 renderTbl(cfpData);
 
-const validateField = function (event) {
+const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -38,7 +38,7 @@ FNAME.addEventListener("blur",validateField);
 LNAME.addEventListener("blur", validateField);
 
 
-FORM.addEventListener("submit", function (e) {
+FORM.addEventListener("submit", e => {
   e.preventDefault();
   if (FNAME.value !== `` && LNAME.value !== ``) {
     SUBMIT.textContent = ``;
@@ -53,17 +53,22 @@ FORM.addEventListener("submit", function (e) {
 });
 
 
-const add2 = function (...a) {
-  return 2 + a[3];
-}
-const result = add2(1, 2, 3, 4);
+// rest operator
+// const add2 = function (...a) {
+//   return 2 + a[3];
+// };
 
-//spread argument
+// const result = add2(1, 2, 3, 4);
+
+// arrow function
+// const add2 = (a) => 2 + a;
+
+// const result = add2(10);
 
 //IIFE
-const a = 3;
 
-(function(){
-  console.log("inside IIFE")
-  console.log(a)
-})();
+// const a = 3;
+
+// (function () {
+//   console.log("inside IIFE");
+// })();
