@@ -20,16 +20,16 @@ import { saveLS, cfpData } from "./storage.js"
 // }
 // renderTbl(cfpData);
 
-const start = (...x) => {
-  const houseHoldPTS = determineHouseHoldPts(x[2]);
-  const houseSizePts = determineHouseSizePts(x[3]);
+const start = (...i) => {
+  const houseHoldPTS = determineHouseHoldPts(i[2]);
+  const houseSizePts = determineHouseSizePts(i[3]);
   const total = houseHoldPTS + houseSizePts;
 
   cfpData.push({
-    firstName: x[0],
-    lastName: x[1],
-    houseM: x[2],
-    houseS: x[3],
+    firstName: i[0],
+    lastName: i[1],
+    houseM: i[2],
+    houseS: i[3],
     houseMPTS: houseHoldPTS,
     houseSPTS: houseSizePts,
     cfpTotal: total,
