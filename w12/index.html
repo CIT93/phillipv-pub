@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Week 12 - Public Challenge</title>
+</head>
+
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Want to look like Captain America?</legend>
+      <div>
+        <label>Exercise:</label>
+        <select name="exercise" id="exercise" required>
+          <option value="">---Choose your Exercise ---</option>
+          <option value="pushUps">Push ups</option>
+          <option value="burpees">Burpees</option>
+          <option value="squats">Squats</option>
+          <option value="situps">Situps</option>
+          <option value="jumpRope">Jump Rope</option>
+          <option value="pullups">Pullups</option>
+          <option value="mcdonalds">Hit the M in gyM</option>
+        </select>
+      </div>
+      <div>
+        <label>Number of Reps:</label>
+        <input type="number" name="reps" id="reps" min="1" max="25" required>
+      </div>
+      <div>
+        <label>Time (Minutes):</label>
+        <input type="number" name="time" id="time" min="1" max="10" required>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+        <span class="error" id="submitError"></span>
+      </div>
+
+    </fieldset>
+  </form>
+  <div id="output"></div>
+</body>
+
+</html>
