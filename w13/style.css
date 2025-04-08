@@ -1,0 +1,14 @@
+html{
+    font-size: 22px;
+}
+body {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+    text-align: center;
+}
+input:in-range {
+    background-color: lightgreen;
+}
+input:out-of-range {
+    background-color: lightcoral;
+}
