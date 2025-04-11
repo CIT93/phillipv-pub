@@ -28,7 +28,7 @@ const onError = (errorCode) => {
 
 const onFinal = () => {
   const doneMsg = document.createElement("p");
-  doneMsg.textContent = `On the the next Workout!`;
+  doneMsg.textContent = `On to the next Workout!`;
   OUTPUT.appendChild(doneMsg);
   FORM.reset()
 }
