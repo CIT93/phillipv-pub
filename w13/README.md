@@ -6,3 +6,6 @@ onSuccess will display success msg after time ran
 onError runs with code line 6 - 8. If reps < 10, and page will display Error message in line 6-8.
 
 Onfinal will display on to the next workout no matter if code ran error or success. 
+
+update: 
+FORM.reset() is inputted into OnFinal becuase it is the last step in submission.
