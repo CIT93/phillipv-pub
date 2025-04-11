@@ -42,7 +42,7 @@ getFit();
 // const startWorkout = (exerciseType, numberReps, time, fn) => {
 //   fn(`Start ${exerciseType} <> Goal reps is ${numberReps} <> Complete in ${time} min!`, `p`) // sync
 //   setTimeout(() => {
-//     fn(`Stop ${exerciseType}`, "h1") // async
+//     fn(`Stop ${exerciseType}`, "h1")
 //   }, time * 1000)
 // }
 
