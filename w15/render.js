@@ -32,7 +32,6 @@ const renderTblBtn = (obj, index, data) => {
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
 
-
   btnDel.addEventListener(`click`, e => {
     onUpdate(index, data);
   });
@@ -55,19 +54,27 @@ const renderBody = data => {
   data.forEach((obj, index) => {
     const tr = document.createElement("tr");
     const keys = ["firstName", "houseHoldMembers", "houseSize", "foodChoice", "total"]
-      keys.forEach(key => {
-        const td = document.createElement("td");
-        td.textContent = obj[key];
-        tr.appendChild(td);
-      })
+    keys.forEach(key => {
+      const td = document.createElement("td");
+      td.textContent = obj[key];
+      tr.appendChild(td);
+    })
     const td = renderTblBtn(obj, index, data);
     tr.appendChild(td);
     tbody.appendChild(tr);
   });
 
   return tbody;
-
 }
+
+// High Order Function 
+const getAvgScore = (data) => {
+  if (data.length === 0) return 0;
+  const total = data
+    .map(entry => entry.total)
+    .reduce((sum, score) => sum + score, 0);
+  return (total / data.length).toFixed(2);
+};
 
 const renderTbl = data => {
   TBL.innerHTML = "";
@@ -75,6 +82,24 @@ const renderTbl = data => {
     const table = renderTblHeading();
     const tbody = renderBody(data);
     table.appendChild(tbody);
+
+    // Add avg row
+    const avgScore = getAvgScore(data);
+    const avgRow = table.insertRow(-1);
+
+    // Fill first 4 empty cells
+    for (let i = 0; i < 4; i++) {
+      avgRow.insertCell(i).textContent = "";
+    }
+
+    // Label cell
+    const avgLabelCell = avgRow.insertCell(4);
+    avgLabelCell.textContent = "Average Footprint";
+
+    // Score cell
+    const avgValueCell = avgRow.insertCell(5);
+    avgValueCell.textContent = avgScore;
+
     TBL.appendChild(table);
   }
 }
