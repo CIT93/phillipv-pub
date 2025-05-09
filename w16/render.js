@@ -43,7 +43,8 @@ const renderTblBtn = (obj, index, data) => {
     FORM[4].value = obj.houseSize;
     FORM[5].value = obj.foodChoice;
     FORM[6].value = obj.foodSource;
-    FORM[7].value = obj.waterConsumPoints.toString();
+    FORM[7].value = obj.waterConsumption.toString();
+    FORM[8].value = obj.hasBothAppliances.toString();
     onUpdate(index, data);
   })
 
@@ -69,7 +70,6 @@ const renderBody = data => {
   return tbody;
 }
 
-// High Order Function 
 const getAvgScore = (data) => {
   if (data.length === 0) return 0;
   const total = data
@@ -85,20 +85,16 @@ const renderTbl = data => {
     const tbody = renderBody(data);
     table.appendChild(tbody);
 
-    // Add avg row
     const avgScore = getAvgScore(data);
     const avgRow = table.insertRow(-1);
 
-    // Fill first 4 empty cells
     for (let i = 0; i < 1; i++) {
       avgRow.insertCell(i).textContent = "";
     }
 
-    // Label cell
     const avgLabelCell = avgRow.insertCell(1);
     avgLabelCell.textContent = "Average Footprint";
 
-    // Score cell
     const avgValueCell = avgRow.insertCell(2);
     avgValueCell.textContent = avgScore;
 

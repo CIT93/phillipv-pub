@@ -59,11 +59,19 @@
       <div>
         <label>Water Consumption</label>
         <select name="water" required>
-          <option value="">--- Dishwasher and/or washing Machine Usage ---</option>
-          <option value="3">More than 9 Tmes per week</option>
-          <option value="2">4 to 9 times per week</option>
-          <option value="1">1 to 3 times per week </option>
+          <option value="">--- Dishwasher and/or Washing Machine Usage ---</option>
+          <option value="10">More than 9 times per week</option>
+          <option value="6">4 to 9 times per week</option>
+          <option value="3">1 to 3 times per week</option>
           <option value="0">Don't have a Dishwasher</option>
+        </select>
+      </div>
+      <div>
+        <label>Do you have a Dishwasher and Washing Machine?</label>
+        <select name="hasBoth" required>
+          <option value="">---Yes or No---</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
         </select>
       </div>
       <button type="submit">Submit</button><br>

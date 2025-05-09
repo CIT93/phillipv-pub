@@ -27,13 +27,14 @@ FORM.addEventListener("submit", e => {
   if (FNAME.value !== `` && LNAME.value !== ``) {
     SUBMIT.textContent = ``;
     const fpObj = new FP(
-      FNAME.value, 
-      LNAME.value, 
-      parseInt(e.target.houseM.value), 
-      e.target.houseS.value, 
+      FNAME.value,
+      LNAME.value,
+      parseInt(e.target.houseM.value),
+      e.target.houseS.value,
       e.target.foodC.value,
       e.target.foodSource.value,
-      parseInt(e.target.water.value),
+      e.target.water.value,
+      e.target.hasBoth.value
     );
     cfpData.push(fpObj)
     saveLS(cfpData);
