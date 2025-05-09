@@ -45,6 +45,7 @@ const renderTblBtn = (obj, index, data) => {
     FORM[6].value = obj.foodSource;
     FORM[7].value = obj.waterConsumption.toString();
     FORM[8].value = obj.hasBothAppliances.toString();
+    FORM[9].value = obj.purchaseCount.toString();
     onUpdate(index, data);
   })
 

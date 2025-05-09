@@ -50,3 +50,35 @@ calWaterConsumption() {
 3 is >= 1
 0 = 0 
 This means that the calWaterConsumption needs to follow the logic of the if/elseif.
+
+
+
+
+# Calulate Purchase 
+ calPurchasePoints() {
+    if (this.purchaseCount > 7) {
+      this.purchasePoints = 10;
+    } else if (this.purchaseCount >= 5) {
+      this.purchasePoints = 8;
+    } else if (this.purchaseCount >= 3) {
+      this.purchasePoints = 6;
+    } else if (this.purchaseCount > 1 ) {
+      this.purchasePoints = 4;
+    } else {
+      this.purchasePoints = 2;
+    }
+  }
+
+
+# HTML: 
+  <div>
+        <label>How many new household items do you purchase per year?</label>
+        <select name="purchaseCount" id="purchaseCount" required>
+          <option value="">--- Select number of purchases ---</option>
+          <option value="8">More than 7 items</option>
+          <option value="6">5 to 7 items</option>
+          <option value="4">3 to 5 items</option>
+          <option value="2">Less than 3 items</option>
+          <option value="1">Almost none / Only secondhand</option>
+        </select>
+      </div>

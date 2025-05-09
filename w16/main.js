@@ -34,7 +34,8 @@ FORM.addEventListener("submit", e => {
       e.target.foodC.value,
       e.target.foodSource.value,
       e.target.water.value,
-      e.target.hasBoth.value
+      e.target.hasBoth.value,
+      e.target.purchaseCount.value
     );
     cfpData.push(fpObj)
     saveLS(cfpData);
