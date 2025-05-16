@@ -48,7 +48,10 @@ FORM.addEventListener("submit", e => {
       formElements.hasBoth.value,
       formElements.purchaseCount.value,
       formElements.waste.value,
-      recycleItems
+      recycleItems,
+      formElements.personalVehicle.value,
+      formElements.publicTransit.value,
+      formElements.flights.value
     );
 
     cfpData.push(fpObj);

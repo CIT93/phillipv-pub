@@ -108,6 +108,39 @@
           <input type="checkbox" name="recycle" value="food"> Food waste (composting)<br>
         </fieldset>
       </div>
+      <div>
+        <label>Personal Vehicle Travel (miles per year)</label>
+        <select name="personalVehicle" required>
+          <option value="">-- Select --</option>
+          <option value="12">More than 15,000 miles</option>
+          <option value="10">10,000 - 15,000 miles</option>
+          <option value="6">1,000 - 10,000 miles</option>
+          <option value="4">Less than 1,000 miles</option>
+          <option value="0">Don't have a car</option>
+        </select>
+      </div>
+      <div>
+        <label>Public Transportation Travel (miles per year)</label>
+        <select name="publicTransit" required>
+          <option value="">-- Select --</option>
+          <option value="12">More than 20,000 miles</option>
+          <option value="10">15,000 - 20,000 miles</option>
+          <option value="6">10,000 - 15,000 miles</option>
+          <option value="4">1,000 - 10,000 miles</option>
+          <option value="2">Less than 1,000 miles</option>
+          <option value="0">Don't use public transit</option>
+        </select>
+      </div>
+      <div>
+        <label>Flight Travel</label>
+        <select name="flights" required>
+          <option value="">-- Select --</option>
+          <option value="2">Short (within state)</option>
+          <option value="6">Medium (nearby state/country)</option>
+          <option value="20">Long (to another continent)</option>
+          <option value="0">No flights</option>
+        </select>
+      </div>
       <button type="submit">Submit</button><br>
       <span id="submitError" class="error"></span>
     </fieldset>

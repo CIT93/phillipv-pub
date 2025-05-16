@@ -47,8 +47,10 @@ const renderTblBtn = (obj, index, data) => {
     FORM[8].value = obj.hasBothAppliances.toString();
     FORM[9].value = obj.purchaseCount.toString();
     FORM[10].value = obj.wastePerWeek.toString();
+    FORM[11].value = obj.personalVehicle.toString();
+    FORM[12].value = obj.publicTransit.toString();
+    FORM[13].value = obj.flights.toString();
 
-    // ✅ Update: Restore recycle checkboxes
     const recycleCheckboxes = FORM.querySelectorAll('input[name="recycle"]');
     recycleCheckboxes.forEach(checkbox => {
       checkbox.checked = false;
