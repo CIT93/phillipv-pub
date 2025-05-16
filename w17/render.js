@@ -37,19 +37,19 @@ const renderTblBtn = (obj, index, data) => {
   });
 
   btnEdit.addEventListener("click", () => {
-    FORM[1].value = obj.firstName;
-    FORM[2].value = obj.lastName;
-    FORM[3].value = obj.houseHoldMembers;
-    FORM[4].value = obj.houseSize;
-    FORM[5].value = obj.foodChoice;
-    FORM[6].value = obj.foodSource;
-    FORM[7].value = obj.waterConsumption.toString();
-    FORM[8].value = obj.hasBothAppliances.toString();
-    FORM[9].value = obj.purchaseCount.toString();
-    FORM[10].value = obj.wastePerWeek.toString();
-    FORM[11].value = obj.personalVehicle.toString();
-    FORM[12].value = obj.publicTransit.toString();
-    FORM[13].value = obj.flights.toString();
+    FORM.querySelector('[name="firstName"]').value = obj.firstName;
+    FORM.querySelector('[name="lastName"]').value = obj.lastName;
+    FORM.querySelector('[name="houseM"]').value = obj.houseHoldMembers;
+    FORM.querySelector('[name="houseS"]').value = obj.houseSize;
+    FORM.querySelector('[name="foodC"]').value = obj.foodChoice;
+    FORM.querySelector('[name="foodSource"]').value = obj.foodSource;
+    FORM.querySelector('[name="water"]').value = String(obj.waterConsumption);
+    FORM.querySelector('[name="hasBoth"]').value = String(obj.hasBothAppliances);
+    FORM.querySelector('[name="purchaseCount"]').value = String(obj.purchaseCount);
+    FORM.querySelector('[name="waste"]').value = String(obj.wastePerWeek);
+    FORM.querySelector('[name="personalVehicle"]').value = String(obj.personalVehicle);
+    FORM.querySelector('[name="publicTransit"]').value = String(obj.publicTransit);
+    FORM.querySelector('[name="flights"]').value = String(obj.flights);
 
     const recycleCheckboxes = FORM.querySelectorAll('input[name="recycle"]');
     recycleCheckboxes.forEach(checkbox => {

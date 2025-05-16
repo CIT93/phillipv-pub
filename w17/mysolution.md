@@ -51,3 +51,38 @@ calTransportationPoints() {
   }
 
 values are references in HTML. 
+
+fixed the error by using quary selector for: 
+btnEdit.addEventListener("click", () => {
+    FORM.querySelector('[name="firstName"]').value = obj.firstName;
+    FORM.querySelector('[name="lastName"]').value = obj.lastName;
+    FORM.querySelector('[name="houseM"]').value = obj.houseHoldMembers;
+    FORM.querySelector('[name="houseS"]').value = obj.houseSize;
+    FORM.querySelector('[name="foodC"]').value = obj.foodChoice;
+    FORM.querySelector('[name="foodSource"]').value = obj.foodSource;
+    FORM.querySelector('[name="water"]').value = String(obj.waterConsumption);
+    FORM.querySelector('[name="hasBoth"]').value = String(obj.hasBothAppliances);
+    FORM.querySelector('[name="purchaseCount"]').value = String(obj.purchaseCount);
+    FORM.querySelector('[name="waste"]').value = String(obj.wastePerWeek);
+    FORM.querySelector('[name="personalVehicle"]').value = String(obj.personalVehicle);
+    FORM.querySelector('[name="publicTransit"]').value = String(obj.publicTransit);
+    FORM.querySelector('[name="flights"]').value = String(obj.flights);
+
+    const recycleCheckboxes = FORM.querySelectorAll('input[name="recycle"]');
+    recycleCheckboxes.forEach(checkbox => {
+      checkbox.checked = false;
+    });
+
+    obj.recycleItems.forEach(item => {
+      const checkbox = FORM.querySelector(`input[name="recycle"][value="${item}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    });
+
+    onUpdate(index, data);
+  });
+
+Used QuarySelector to select matching elements from HTML. Dye to the error of FORM[#], I decided to use quarySelector to be select the exact form input bu its name attribute. This makes it easier to work with becuase I know what quarySelector is directly referencing. 
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
