@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Week 17 - Finish and Share </title>
+</head>
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Your Next Handgun App</legend>
+      <div>
+        <label>What is your budget?</label>
+        <input type="number" name="budget" id="budget" min="0" step="0.01">
+        <span id="budgetError" class="error"></span> 
+      </div>
+      <div>
+        <label>Would you like an optic?</label>
+        <select name="optics" required>
+          <option value="">---Yes or No---</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <div>
+        <label>How many shots did you hit on target?</label>
+        <input type="number" name="shotsHit" id="shotsHit" min="0">
+        <span id="shotsHitError" class="error"></span> 
+      </div>
+      <button type="submit">Submit</button>
+      <span id="submitError" class="error"></span>
+    </fieldset>
+  </form>
+  <div id="output"></div>
+  <div id="tab-data"></div>
+  <div id="table-body"></div>
+</body>
+
+</html>

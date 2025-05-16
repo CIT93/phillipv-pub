@@ -1,0 +1,36 @@
+html{
+    font-size: 22px;
+    font-family: "Times New Roman", Times, serif;
+}
+body {
+    background-color: rgb(40, 106, 150);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+input:in-range {
+    background-color: lightgreen;
+}
+input:out-of-range {
+    background-color: lightcoral;
+}
+table, th, td {
+    margin: 0 auto;
+    border: 1px solid;
+    padding: 5px;
+}
+tbody tr:nth-child() {
+    background-color: rgb(16, 65, 4);
+}
+.error {
+color: red;
+text-transform: uppercase;
+}
+.invalid {
+    border: 1px solid red;
+}
+.gun-shopping-msg {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-top: 10px;
+    color: rgb(251, 255, 0);
+}
