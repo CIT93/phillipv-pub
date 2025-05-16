@@ -15,13 +15,13 @@ const renderTblHeading = () => {
   thead.appendChild(tr);
   table.appendChild(thead);
   return table;
-}
+};
 
 const onUpdate = (index, data) => {
   data.splice(index, 1);
-  saveLS(data)
+  saveLS(data);
   renderTbl(data);
-}
+};
 
 const renderTblBtn = (obj, index, data) => {
   const td = document.createElement("td");
@@ -32,11 +32,11 @@ const renderTblBtn = (obj, index, data) => {
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
 
-  btnDel.addEventListener(`click`, e => {
+  btnDel.addEventListener("click", () => {
     onUpdate(index, data);
   });
 
-  btnEdit.addEventListener(`click`, e => {
+  btnEdit.addEventListener("click", () => {
     FORM[1].value = obj.firstName;
     FORM[2].value = obj.lastName;
     FORM[3].value = obj.houseHoldMembers;
@@ -47,30 +47,44 @@ const renderTblBtn = (obj, index, data) => {
     FORM[8].value = obj.hasBothAppliances.toString();
     FORM[9].value = obj.purchaseCount.toString();
     FORM[10].value = obj.wastePerWeek.toString();
+
+    // ✅ Update: Restore recycle checkboxes
+    const recycleCheckboxes = FORM.querySelectorAll('input[name="recycle"]');
+    recycleCheckboxes.forEach(checkbox => {
+      checkbox.checked = false;
+    });
+
+    obj.recycleItems.forEach(item => {
+      const checkbox = FORM.querySelector(`input[name="recycle"][value="${item}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    });
+
     onUpdate(index, data);
-  })
+  });
 
   return td;
-}
+};
 
 const renderBody = data => {
-  const tbody = document.createElement("tbody")
+  const tbody = document.createElement("tbody");
 
   data.forEach((obj, index) => {
     const tr = document.createElement("tr");
-    const keys = ["firstName", "lastName", "total"]
+    const keys = ["firstName", "lastName", "total"];
     keys.forEach(key => {
       const td = document.createElement("td");
       td.textContent = obj[key];
       tr.appendChild(td);
-    })
+    });
     const td = renderTblBtn(obj, index, data);
     tr.appendChild(td);
     tbody.appendChild(tr);
   });
 
   return tbody;
-}
+};
 
 const getAvgScore = (data) => {
   if (data.length === 0) return 0;
@@ -102,6 +116,6 @@ const renderTbl = data => {
 
     TBL.appendChild(table);
   }
-}
+};
 
 export { renderTbl };
